@@ -5,7 +5,7 @@ import { parseClubsResponse } from '../utils/OpenFootballParser.ts'
 let cache: Team[] = [];
 
 const _fetchTeam = async() => {
-  let resp: Response = await fetch('https://raw.githubusercontent.com/openfootball/football.json/master/2019-20/en.1.clubs.json');
+  const resp: Response = await fetch('https://raw.githubusercontent.com/openfootball/football.json/master/2019-20/en.1.clubs.json');
   const json: ClubResponse = await resp.json();
   cache = parseClubsResponse(json);
 }

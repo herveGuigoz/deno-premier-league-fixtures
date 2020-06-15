@@ -9,9 +9,9 @@ const parseFixturesResponse = (json: FixturesResponse) => {
 
   json.rounds.map(round => {
 
-    let item: Fixture[] = round.matches.map(match => {
+    const item: Fixture[] = round.matches.map(match => {
       id++;
-      let fix: Fixture = {
+      const fix: Fixture = {
         id: id,
         round: roundNumber,
         date: match.date,
@@ -34,7 +34,7 @@ const parseFixturesResponse = (json: FixturesResponse) => {
 const parseClubsResponse = (json: ClubResponse) => {
   let id: number = 1;
 
-  let teams: Team[] = json.clubs.map(item => {
+  const teams: Team[] = json.clubs.map(item => {
     const team: Team = {
       id: id,
       name: item.name
