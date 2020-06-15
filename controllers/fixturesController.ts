@@ -13,7 +13,6 @@ const _fetchFixtures = async() => {
 // @desc    Get fixtures collection
 // @route   GET /teams
 const getFixturesCollection = async ({ response }: { response: any }) => {
-	
   if(cache.length == 0) {
     try {
       await _fetchFixtures();
