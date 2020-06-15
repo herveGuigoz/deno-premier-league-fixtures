@@ -1,45 +1,45 @@
 import { Fixture } from '../models/fixture.ts'
 import { Team } from '../models/team.ts'
-import { Round, Club } from '../models/OpenDataModels.ts'
+import { FixturesResponse, ClubResponse } from '../models/OpenDataModels.ts'
 
-const parseFixturesResponse = (json: any) => {
-  let n: number = 0;
+const parseFixturesResponse = (json: FixturesResponse) => {
+  let id: number = 0;
   let roundNumber: number = 1;
   let fixtures: Fixture[] = [];
 
-  (json.rounds as Round[]).map(r => {
+  json.rounds.map(round => {
 
-    let f: Fixture[] = (r as Round).matches.map(m => {
-      n++;
+    let item: Fixture[] = round.matches.map(match => {
+      id++;
       let fix: Fixture = {
-        id: n,
+        id: id,
         round: roundNumber,
-        date: m.date,
-        played: m.score1 !== null,
-        homeTeam: m.team1.name,
-        awayTeam: m.team2.name,
-        homeScore: m.score1 ?? 0,
-        awayScore: m.score2 ?? 0,
+        date: match.date,
+        played: match.score1 !== null,
+        homeTeam: match.team1.name,
+        awayTeam: match.team2.name,
+        homeScore: match.score1 ?? 0,
+        awayScore: match.score2 ?? 0,
       }
       
       return fix;
     }); 
     roundNumber++;
-    fixtures = [...fixtures, ...f];
+    fixtures = [...fixtures, ...item];
   });
 
   return fixtures;
 }
 
-const parseClubsResponse = (json: Object) => {
-  let n: number = 1;
+const parseClubsResponse = (json: ClubResponse) => {
+  let id: number = 1;
 
-  let teams: Team[] = (json as Club).clubs.map(item => {
+  let teams: Team[] = json.clubs.map(item => {
     const team: Team = {
-      id: n,
+      id: id,
       name: item.name
     }
-    n++;
+    id++;
     return team;
   });
 

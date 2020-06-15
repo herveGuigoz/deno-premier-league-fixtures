@@ -1,3 +1,8 @@
+interface FixturesResponse {
+  name: string,
+  rounds: Round[]
+}
+
 interface Round {
   name: string,
   matches: Match[]
@@ -23,9 +28,9 @@ interface ClubItem {
   code: string
 }
 
-interface Club {
+interface ClubResponse {
   name: string,
   clubs: ClubItem[]
 }
 
-export { Round, Club }
+export { FixturesResponse, ClubResponse }
