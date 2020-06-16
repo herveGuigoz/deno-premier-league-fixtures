@@ -1,6 +1,6 @@
 import { Team } from '../models/team.ts'
-import { ClubResponse } from '../models/OpenDataModels.ts'
-import { parseClubsResponse } from '../utils/OpenFootballParser.ts'
+import { ClubResponse } from '../models/openDataModels.ts'
+import { parseClubsResponse } from '../utils/openFootballParser.ts'
 
 let cache: Team[] = [];
 

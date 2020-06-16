@@ -1,6 +1,6 @@
 import { Fixture } from '../models/fixture.ts'
 import { Team } from '../models/team.ts'
-import { FixturesResponse, ClubResponse } from '../models/OpenDataModels.ts'
+import { FixturesResponse, ClubResponse } from '../models/openDataModels.ts'
 
 const parseFixturesResponse = (json: FixturesResponse) => {
   let id: number = 0;

@@ -1,6 +1,6 @@
 import { Fixture } from '../models/fixture.ts'
-import { FixturesResponse } from '../models/OpenDataModels.ts'
-import { parseFixturesResponse } from '../utils/OpenFootballParser.ts'
+import { FixturesResponse } from '../models/openDataModels.ts'
+import { parseFixturesResponse } from '../utils/openFootballParser.ts'
 
 let cache: Fixture[] = [];
 
