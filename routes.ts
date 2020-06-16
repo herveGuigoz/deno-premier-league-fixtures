@@ -6,6 +6,10 @@ import { getFixturesCollection, getFixturesItem } from './controllers/fixturesCo
 const router = new Router()
 
 router
+    .get('/', async (context: any) => { await context.send({
+        root: './static',
+        index: 'index.html'
+    })})
     .get('/teams', getTeamsCollection)
     .get('/teams/:id', getTeamsItem)
     .get('/fixtures', getFixturesCollection)
